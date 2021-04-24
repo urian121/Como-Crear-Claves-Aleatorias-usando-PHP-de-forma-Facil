@@ -62,24 +62,34 @@
 
 <?php
 /**Demo 1***/
-$logitudpass = 5;
-$pass = substr( md5(microtime()), 1, $logitudpass);
+$logitudPass = 5;
+$miPassword  = substr( md5(microtime()), 1, $logitudPass);
+
+//con la función md5 calculamos el hash md5 de ese string generado
+// con el substr  obtenemos una porción de ese string
 
 
 /**Demo 2**/
-function generateClave($length = 8) {
+function claveOne($length = 4) {
     return substr(str_shuffle(str_repeat($x='0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil($length/strlen($x)) )),1,$length);
 }
-$miClave  = generateClave();
+$miClaveOne  = claveOne();
 
 
 /**Demo 3 **/
-$longitudClave = "10";
-  $miString = "ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnpqrstuvwxyz23456789";
-  $clave = "";
-  for($i=0; $i<=$longitudClave; $i++) {
-    $clave .= substr($miString,rand(0,62),1);
-  }
+function claveThree($length = 3) { 
+    return substr(str_shuffle("0123456789"), 0, $length); 
+} 
+$miClaveThree  = claveThree();
+
+
+/**Demo 4**/
+function claveFour(){  
+  $longitud = 8; //longitud del password  
+  $pass = substr(md5(rand()),0,$longitud);  
+  return($pass); // devuelve el password   
+}
+$miClaveCuatro  = claveFour();
 
 
 ?>
@@ -89,12 +99,10 @@ $longitudClave = "10";
     <div class="col-12 col-md-12">
     	<span>
 			<?php 
-        //echo $pass;
-
-        //echo $miClave;
-
-        echo $clave;
-
+        echo $miPassword;
+        //echo $miClaveOne;
+        //echo $miClaveThree;
+        //echo $miClaveCuatro;
       ?>
 		</span>
     </div>
