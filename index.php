@@ -4,9 +4,8 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<link type="text/css" rel="shortcut icon" href="img/logo-mywebsite-urian-viera.svg"/>
-	<title>Como-Crear-Contador-de-Vistas-con-PHP-Facil: Urian Viera</title>
+	<title>  Cómo Crear Claves Aleatorias usando PHP de forma Fácil :: Urian Viera</title>
 	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="css/maquinawrite.css">
 	<link rel="stylesheet" type="text/css" href="css/cargando.css">
 </head>
   <style>
@@ -45,7 +44,7 @@
       </li>
     </ul>
     <div class="my-2 my-lg-0" id="maquinaescribir">
-      <h5 class="navbar-brand">Web Developer Urian Viera <span>&#160;</span></h5>
+      <h5 class="navbar-brand">Web Developer Urian Viera </h5>
     </div>
 </nav>
 
@@ -56,42 +55,32 @@
 
 
 <h3 class="text-center">
-	Cómo Crear un Contador de Vistas usando PHP de forma Fácil
+	Cómo Crear Claves Aleatorias usando PHP de forma Fácil
 </h3>
 <hr>
 
 
 <?php
+/**Demo 1***/
 $logitudpass = 5;
-echo $pass = substr( md5(microtime()), 1, $logitudpass);
+$pass = substr( md5(microtime()), 1, $logitudpass);
 
 
-
-function generateRandomString($length = 4) {
+/**Demo 2**/
+function generateClave($length = 8) {
     return substr(str_shuffle(str_repeat($x='0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil($length/strlen($x)) )),1,$length);
 }
-$claveCliente   = generateRandomString();
+$miClave  = generateClave();
 
 
-$longitud = "6";
-  $str = "ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnpqrstuvwxyz23456789";
-  $password = "";
-  for($i=0;$i<$longitud;$i++) {
-    $password .= substr($str,rand(0,62),1);
+/**Demo 3 **/
+$longitudClave = "10";
+  $miString = "ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnpqrstuvwxyz23456789";
+  $clave = "";
+  for($i=0; $i<=$longitudClave; $i++) {
+    $clave .= substr($miString,rand(0,62),1);
   }
 
-
-
-if (!file_exists($pass)) {
-    mkdir($pass, 0777, true);
-}
-
-for ($i=0; $i <=3 ; $i++) { 
-  if (!file_exists($pass)) {
-    mkdir($pass, 0777, true);
-  }
-
-}
 
 ?>
 
@@ -99,7 +88,14 @@ for ($i=0; $i <=3 ; $i++) {
  <div class="row text-center">
     <div class="col-12 col-md-12">
     	<span>
-			hola
+			<?php 
+        //echo $pass;
+
+        //echo $miClave;
+
+        echo $clave;
+
+      ?>
 		</span>
     </div>
   </div>
